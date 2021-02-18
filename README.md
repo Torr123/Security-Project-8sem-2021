@@ -1,2 +1,8 @@
-# Security-Project-8sem-2021
- 
+# Information Security Project 2021
+##### MIPT
+
+##### Developers:
+* Bolodurin Alexandr
+* Ivanova Natalia
+* Menshikov Joseph
+* Novikov Yuri
