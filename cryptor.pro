@@ -15,8 +15,7 @@ SOURCES += \
         source/file_encrypter.cpp \
 
 
-RESOURCES += \
-    pages/qml.qrc
+RESOURCES +=
 
 TRANSLATIONS += \
     ../languages/cryptor_en_US.ts
@@ -50,12 +49,11 @@ macx: {
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.15
 }
 
-DISTFILES += \
+RESOURCES += \
     pages/qml/DecryptPage.qml \
     pages/qml/EncryptPage.qml \
     pages/qml/HomeForm.qml \
     pages/qml/MainPage.qml \
     pages/qml/Page1Form.ui.qml \
     pages/qml/Page2Form.ui.qml \
-    pages/qml/main.qml \
-    pages/qtquickcontrols2.conf
+    pages/qml/main.qml

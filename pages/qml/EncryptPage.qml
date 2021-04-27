@@ -90,7 +90,7 @@ Page {
             Layout.alignment: Qt.AlignCenter
             visible: false
 
-            text: qsTr("Decrypt")
+            text: qsTr("Encrypt")
             padding: 12
             onClicked: {
 //                cryptor.file = fileDialog.fileUrl
