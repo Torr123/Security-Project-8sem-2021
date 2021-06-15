@@ -20,7 +20,7 @@ unsigned char* decode64(const char* input, int length) {
 int Cezar_Encrypt(std::ifstream& file, std::ofstream& file_out, std::vector<uint8_t> vec)
 {
 
-	uint8_t key = vec[0]%25;
+	uint8_t key = vec[0];
 	char cr;
 
 	if(!file.is_open())
@@ -34,9 +34,10 @@ int Cezar_Encrypt(std::ifstream& file, std::ofstream& file_out, std::vector<uint
 	{
 
 		cr = file.get();
-		if(cr>=32 && cr<=127)
+		if(file.eof() != 1)
 		{
-			cr = (((cr-32)+key)%95)+32;
+			cr = (cr+key)%256;
+			file_out.put(cr);
 		}
 
 		file_out.put(cr);
@@ -49,7 +50,7 @@ int Cezar_Encrypt(std::ifstream& file, std::ofstream& file_out, std::vector<uint
 int Cezar_Decrypt(std::ifstream& encrypted_file, std::ofstream& file_out, std::vector<uint8_t> vec)
 {
 
-        uint8_t key = vec[0]%25;
+        uint8_t key = vec[0];
         char cr;
 
         if(!encrypted_file.is_open())
@@ -63,10 +64,11 @@ int Cezar_Decrypt(std::ifstream& encrypted_file, std::ofstream& file_out, std::v
         {
 
                 cr = encrypted_file.get();
-		if(cr>=32 && cr<=127)
+		if(encrypted_file.eof() != 1)
 		{
+			cr = (cr-key)%256;
 
-			cr = (((cr-32)-key+95)%95)+32;
+			file_out.put(cr);
 		}
 
                 file_out.put(cr);
